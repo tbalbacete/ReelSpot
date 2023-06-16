@@ -1,13 +1,14 @@
-import './App.css'
-import { Home } from './Pages/Home'
+import { Home } from "./Pages/Home";
+import { DataProvider } from "./data";
 
 function App() {
-
   return (
     <>
-      <Home />
+      <DataProvider>
+        <Home />
+      </DataProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
