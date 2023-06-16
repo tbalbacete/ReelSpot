@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate": "openapi-generator-cli generate -i openapi.json -o ./src/api --generator-name typescript-fetch --additional-properties=typescriptThreePlus=true,supportsES6=true --type-mappings Created=string,Modified=string,Day=string"
   },
   "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.6.0",
+    "moviedb-promise": "^3.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
