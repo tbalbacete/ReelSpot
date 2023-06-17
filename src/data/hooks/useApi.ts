@@ -3,11 +3,12 @@ import { BaseAPI, Configuration } from "../../api";
 type ApiConstructor<T extends BaseAPI> = new (config: Configuration) => T;
 
 export function useApi<T extends BaseAPI>(api: ApiConstructor<T>) {
+  const apiKey = window.env?.REACT_APP_API_KEY;
   return new api(
     new Configuration({
       basePath: "https://api.themoviedb.org",
       headers: {
-        ["Authorization"]: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzM2Y2ZjY5YTFlMDc5M2JlZjU0ZTU3Y2IyNTdiNzlhNSIsInN1YiI6IjY0OGI5ZDhmYzJmZjNkMDBmZmI5ZDI1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-eJCls7YABnNcNOj2czlQPT7KRsfkw6W7LIDRLWK3GU`,
+        ["Authorization"]: `Bearer ${window.env?.REACT_APP_API_KEY}`,
       },
       middleware: [],
     })

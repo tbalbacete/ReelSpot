@@ -4,11 +4,15 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  envPrefix: "REACT_APP_",
   plugins: [react()],
   resolve: {
     alias: {
       "@/api:": path.resolve(__dirname, "src/api"),
     },
+  },
+  define: {
+    "process.env": {},
   },
   server: {
     host: true,
