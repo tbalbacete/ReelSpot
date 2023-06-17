@@ -16,8 +16,6 @@ export const Home = () => {
 
   const popularMovies: Movie[] = popularMoviesQuery.data?.results;
 
-  console.log(popularMovies);
-
   return (
     <>
       {popularMovies.map((movie) => {
