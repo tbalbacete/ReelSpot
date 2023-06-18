@@ -12,10 +12,17 @@
     "generate": "openapi-generator-cli generate -i openapi.json -o ./src/api --generator-name typescript-fetch --additional-properties=typescriptThreePlus=true,supportsES6=true --type-mappings Created=string,Modified=string,Day=string"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mantine/carousel": "^6.0.13",
+    "@mantine/core": "^6.0.13",
+    "@mantine/hooks": "^6.0.13",
     "@openapitools/openapi-generator-cli": "^2.6.0",
+    "@phosphor-icons/react": "^2.0.10",
     "@tanstack/react-query": "^4.29.14",
     "@types/node": "^20.3.1",
     "dotenv-cli": "^7.2.1",
+    "embla-carousel-react": "^8.0.0-rc07",
     "moviedb-promise": "^3.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

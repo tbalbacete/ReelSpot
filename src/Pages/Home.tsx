@@ -1,4 +1,6 @@
+import { Box, Title } from "@mantine/core";
 import { usePopularMoviesData } from "../data/hooks/usePopularMoviesData";
+import { Popcorn } from "@phosphor-icons/react";
 
 type Movie = {
   title: string;
@@ -11,13 +13,16 @@ export const Home = () => {
       language: "en",
       page: "1",
     },
-    { suspense: true }
   );
 
   const popularMovies: Movie[] = popularMoviesQuery.data?.results;
 
   return (
-    <>
+    <Box sx={{ color: "white", minHeight: "100vh" }}>
+      <Box sx={{ display: "flex", alignItems: "center", padding: "1rem", gap: "0.5em" }}>
+        <Title order={1}>ReelSpot</Title>
+        <Popcorn size={32} />
+      </Box>
       {popularMovies.map((movie) => {
         return (
           <img
@@ -25,6 +30,6 @@ export const Home = () => {
           ></img>
         );
       })}
-    </>
+    </Box>
   );
 };
