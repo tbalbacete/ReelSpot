@@ -5,6 +5,7 @@ import { usePopularMoviesData } from "../../data";
 import React from "react";
 
 export type Movie = {
+  id: number;
   title: string;
   poster_path: string;
   vote_average: number;
@@ -36,9 +37,9 @@ export const Home: React.FC = () => {
         <Box>
           <Title sx={{ paddingBottom: "0.5rem" }} order={5}>CURRENTLY TRENDING</Title>
           <Carousel slideSize={"20rem"} slideGap={"lg"} align="start" slidesToScroll={"auto"} dragFree>
-            {popularMovies.map(({ title, poster_path, vote_average }) => {
+            {popularMovies.map(({ id, poster_path, vote_average }) => {
               return (
-                <Carousel.Slide key={title}>
+                <Carousel.Slide key={id}>
                   <Image src={`https://image.tmdb.org/t/p/original/${poster_path}`} onClick={(e) => e.stopPropagation()} />
                   <RingProgress
                     sx={{ top: -40 }}

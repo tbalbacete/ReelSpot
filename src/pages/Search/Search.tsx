@@ -17,7 +17,6 @@ export const Search: React.FC = () => {
 
   const movies: Movie[] = searchQuery.data?.results ?? [];
 
-  console.log(movies);
   return (
     <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "5rem 1rem", gap: "2rem" }}>
       <Box>
@@ -30,8 +29,8 @@ export const Search: React.FC = () => {
       </Box>
 
       <Group position="center" spacing="md">
-        {movies.map(({ poster_path }) => {
-          return <Image key={poster_path} withPlaceholder maw={140} height={220} src={`https://image.tmdb.org/t/p/original/${poster_path}`} onClick={(e) => e.stopPropagation()} />
+        {movies.map(({ poster_path, id }) => {
+          return <Image key={id} withPlaceholder maw={140} height={220} src={`https://image.tmdb.org/t/p/original/${poster_path}`} onClick={(e) => e.stopPropagation()} />
         })}
       </Group>
     </Box>
