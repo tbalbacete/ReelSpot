@@ -12,7 +12,6 @@ function App() {
           <Router>
             <AppRouter />
           </Router>
-          {/* <Home /> */}
         </MantineProvider>
       </DataProvider>
     </>

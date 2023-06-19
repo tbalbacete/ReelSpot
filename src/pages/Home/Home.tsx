@@ -4,7 +4,7 @@ import { Carousel } from "@mantine/carousel";
 import { usePopularMoviesData } from "../../data";
 import React from "react";
 
-type Movie = {
+export type Movie = {
   title: string;
   poster_path: string;
   vote_average: number;
