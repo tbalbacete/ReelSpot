@@ -1,7 +1,8 @@
 import { Box, Title, Image, Stack, RingProgress, Text } from "@mantine/core";
-import { usePopularMoviesData } from "../data/hooks/usePopularMoviesData";
 import { Popcorn } from "@phosphor-icons/react";
 import { Carousel } from "@mantine/carousel";
+import { usePopularMoviesData } from "../../data";
+import React from "react";
 
 type Movie = {
   title: string;
@@ -17,7 +18,7 @@ const getRatingColor = (average: number) => {
   return "red";
 }
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const popularMoviesQuery = usePopularMoviesData(
     {
       language: "en",
@@ -30,12 +31,8 @@ export const Home = () => {
   const popularMovies: Movie[] = popularMoviesQuery.data?.results;
 
   return (
-    <Box sx={{ color: "white", minHeight: "100vh" }}>
-      <Box sx={{ display: "flex", alignItems: "center", padding: "1rem", gap: "0.5em", backgroundColor: "#00506E" }}>
-        <Title order={1}>ReelSpot</Title>
-        <Popcorn size={32} />
-      </Box>
-      <Stack spacing={"xl"} sx={{ padding: "1rem" }}>
+    <Box sx={{ color: "white" }}>
+      <Stack spacing={"xl"} sx={{ padding: "1.5rem" }}>
         <Box>
           <Title sx={{ paddingBottom: "0.5rem" }} order={5}>CURRENTLY TRENDING</Title>
           <Carousel slideSize={"20rem"} slideGap={"lg"} align="start" slidesToScroll={"auto"} dragFree>
