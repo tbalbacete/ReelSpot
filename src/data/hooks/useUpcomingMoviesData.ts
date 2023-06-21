@@ -2,23 +2,23 @@ import { UseQueryOptions, useQuery } from "@tanstack/react-query";
 import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "..";
 import {
   DefaultApi,
-  MoviePopularList200Response,
-  MoviePopularListRequest,
+  MovieUpcomingList200Response,
+  MovieUpcomingListRequest,
 } from "../../api";
 
-type Params = MoviePopularListRequest;
+type Params = MovieUpcomingListRequest;
 
-type ApiResponse = MoviePopularList200Response;
+type ApiResponse = MovieUpcomingList200Response;
 
 const getCacheKey = (params: Params) =>
-  createCacheKey(QUERY_KEY.popularMovies, params);
+  createCacheKey(QUERY_KEY.upcomingMovies, params);
 
 const useFetch = (params: Params) => {
   const api = useApi(DefaultApi);
-  return () => makeRequest(api.moviePopularList(params));
+  return () => makeRequest(api.movieUpcomingList(params));
 };
 
-export const usePopularMovies = (
+export const useUpcomingMovies = (
   params: Params,
   options?: UseQueryOptions<ApiResponse, Error>
 ) => {
