@@ -1,12 +1,12 @@
 import { Box, Button, Group, TextInput, Image, Card, Flex } from "@mantine/core";
 import React, { useState } from "react";
-import { useMovieSearchData } from "../../data/hooks/useMovieSearchData";
+import { useMovieSearch } from "../../data/hooks/useMovieSearchData";
 import { useForm } from "@mantine/form";
 import { Movie } from "../Home/Home";
 
 export const Search: React.FC = () => {
   const [searchString, setSearchString] = useState<string | undefined>(undefined);
-  const searchQuery = useMovieSearchData({ query: searchString, includeAdult: false, language: "en-US", page: 1 }, { suspense: false, enabled: Boolean(searchString) });
+  const searchQuery = useMovieSearch({ query: searchString, includeAdult: false, language: "en-US", page: 1 }, { suspense: false, enabled: Boolean(searchString) });
 
   const form = useForm({
     initialValues: {

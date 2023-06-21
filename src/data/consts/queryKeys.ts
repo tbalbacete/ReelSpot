@@ -1,5 +1,7 @@
 export const QUERY_KEY = {
   example: "example",
   popularMovies: "popularMovies",
-  movieSearch: "movieSearch"
+  movieSearch: "movieSearch",
+  upcomingMovies: "upcomingMovies",
+  individualShow: "individualShow"
 };

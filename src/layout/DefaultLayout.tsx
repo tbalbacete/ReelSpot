@@ -2,6 +2,8 @@ import { Box, Title, UnstyledButton } from "@mantine/core"
 import { Popcorn } from "@phosphor-icons/react"
 import { Outlet } from "react-router-dom"
 import { useRouter } from "../hooks";
+import { PageSpinner } from "../components";
+import React from "react";
 
 export const DefaultLayout: React.FC = () => {
   const { routes } = useRouter();
@@ -18,7 +20,9 @@ export const DefaultLayout: React.FC = () => {
             <UnstyledButton onClick={() => routes.search.go()} sx={{ color: "white" }}><Title order={4}>Search</Title></UnstyledButton>
           </Box>
         </Box>
-        <Outlet />
+        <React.Suspense fallback={<PageSpinner />}>
+          <Outlet />
+        </React.Suspense>
       </Box>
     </>
   )
