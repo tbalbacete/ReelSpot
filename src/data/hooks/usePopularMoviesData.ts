@@ -18,7 +18,7 @@ const useFetch = (params: Params) => {
   return () => makeRequest(api.moviePopularList(params));
 };
 
-export const usePopularMoviesData = (
+export const usePopularMovies = (
   params: Params,
   options?: UseQueryOptions<ApiResponse, Error>
 ) => {

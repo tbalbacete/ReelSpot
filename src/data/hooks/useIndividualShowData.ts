@@ -1,20 +1,20 @@
 import { UseQueryOptions, useQuery } from "@tanstack/react-query";
 import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "..";
-import { DefaultApi, SearchMovie200Response, SearchMovieRequest } from "../../api";
+import { DefaultApi, TvSeriesDetails200Response, TvSeriesDetailsRequest } from "../../api";
 
-type Params = SearchMovieRequest;
+type Params = TvSeriesDetailsRequest;
 
-type ApiResponse = SearchMovie200Response;
+type ApiResponse = TvSeriesDetails200Response;
 
 const getCacheKey = (params: Params) =>
   createCacheKey(QUERY_KEY.movieSearch, params);
 
 const useFetch = (params: Params) => {
   const api = useApi(DefaultApi);
-  return () => makeRequest(api.searchMovie(params));
+  return () => makeRequest(api.tvSeriesDetails(params));
 };
 
-export const useMovieSearch = (
+export const useIndividualShowDetails = (
   params: Params,
   options?: UseQueryOptions<ApiResponse, Error>
 ) => {
