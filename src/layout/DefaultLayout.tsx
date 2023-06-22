@@ -1,8 +1,8 @@
 import { Box, Title, UnstyledButton } from "@mantine/core"
 import { Popcorn } from "@phosphor-icons/react"
 import { Outlet } from "react-router-dom"
-import { useRouter } from "../hooks";
-import { PageSpinner } from "../components";
+import { useRouter } from "@/hooks";
+import { PageSpinner } from "@/components";
 import React from "react";
 
 export const DefaultLayout: React.FC = () => {

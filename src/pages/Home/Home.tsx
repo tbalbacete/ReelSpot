@@ -14,7 +14,8 @@ import {
   useIndividualShowDetails,
   usePopularMovies,
   useUpcomingMovies,
-} from "../../data";
+} from "@/data";
+import { useRouter } from "@/hooks";
 
 export type Movie = {
   id: number;
@@ -45,6 +46,7 @@ const getRatingColor = (average: number) => {
 };
 
 export const Home: React.FC = () => {
+  const { routes } = useRouter();
   const popularMoviesQuery = usePopularMovies({
     language: "en",
     page: "1",
@@ -76,19 +78,13 @@ export const Home: React.FC = () => {
             slidesToScroll={"auto"}
             dragFree
           >
-            {popularMovies.map(({ id, title, poster_path, vote_average }) => {
+            {popularMovies.map(({ id, poster_path, vote_average }) => {
               return (
                 <Carousel.Slide key={id}>
                   <Image
+                    sx={{ "&:hover": { cursor: "pointer", opacity: 0.75 } }}
                     src={`https://image.tmdb.org/t/p/original/${poster_path}`}
-                    onClick={(e) => e.stopPropagation()}
-                    withPlaceholder
-                    placeholder={
-                      <Image
-                        sx={{ height: "20rem" }}
-                        src="./popcorn.svg"
-                      ></Image>
-                    }
+                    onClick={(e) => { e.stopPropagation(); routes.individualMovie.go({ movieId: id.toString() }) }}
                   />
                   <RingProgress
                     sx={{ top: -40 }}
@@ -132,8 +128,9 @@ export const Home: React.FC = () => {
               return (
                 <Carousel.Slide key={id}>
                   <Image
+                    sx={{ "&:hover": { cursor: "pointer", opacity: 0.75 } }}
                     src={`https://image.tmdb.org/t/p/original/${poster_path}`}
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => { e.stopPropagation(); routes.individualMovie.go({ movieId: id.toString() }) }}
                     withPlaceholder
                     placeholder={
                       <Text sx={{ height: "10rem" }} align="center">

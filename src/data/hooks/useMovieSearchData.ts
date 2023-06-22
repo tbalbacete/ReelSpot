@@ -1,6 +1,6 @@
 import { UseQueryOptions, useQuery } from "@tanstack/react-query";
-import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "..";
-import { DefaultApi, SearchMovie200Response, SearchMovieRequest } from "../../api";
+import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "@/data";
+import { DefaultApi, SearchMovie200Response, SearchMovieRequest } from "@/api";
 
 type Params = SearchMovieRequest;
 
