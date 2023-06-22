@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
             slidesToScroll={"auto"}
             dragFree
           >
-            {popularMovies.map(({ id, poster_path, vote_average }) => {
+            {popularMovies.map(({ id, poster_path, title, vote_average }) => {
               return (
                 <Carousel.Slide key={id}>
                   <Image
@@ -88,6 +88,12 @@ export const Home: React.FC = () => {
                       e.stopPropagation();
                       routes.individualMovie.go({ movieId: id.toString() });
                     }}
+                    withPlaceholder
+                    placeholder={
+                      <Text sx={{ height: "100%" }} align="center">
+                        {title}
+                      </Text>
+                    }
                   />
                   <RingProgress
                     sx={{ top: -40 }}
@@ -131,7 +137,10 @@ export const Home: React.FC = () => {
               return (
                 <Carousel.Slide key={id}>
                   <Image
-                    sx={{ "&:hover": { cursor: "pointer", opacity: 0.75 } }}
+                    height="13.5rem"
+                    sx={{
+                      "&:hover": { cursor: "pointer", opacity: 0.75 },
+                    }}
                     src={`https://image.tmdb.org/t/p/original/${poster_path}`}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -139,7 +148,7 @@ export const Home: React.FC = () => {
                     }}
                     withPlaceholder
                     placeholder={
-                      <Text sx={{ height: "10rem" }} align="center">
+                      <Text sx={{}} align="center">
                         {title}
                       </Text>
                     }
