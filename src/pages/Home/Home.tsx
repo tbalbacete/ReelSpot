@@ -84,7 +84,10 @@ export const Home: React.FC = () => {
                   <Image
                     sx={{ "&:hover": { cursor: "pointer", opacity: 0.75 } }}
                     src={`https://image.tmdb.org/t/p/original/${poster_path}`}
-                    onClick={(e) => { e.stopPropagation(); routes.individualMovie.go({ movieId: id.toString() }) }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      routes.individualMovie.go({ movieId: id.toString() });
+                    }}
                   />
                   <RingProgress
                     sx={{ top: -40 }}
@@ -130,7 +133,10 @@ export const Home: React.FC = () => {
                   <Image
                     sx={{ "&:hover": { cursor: "pointer", opacity: 0.75 } }}
                     src={`https://image.tmdb.org/t/p/original/${poster_path}`}
-                    onClick={(e) => { e.stopPropagation(); routes.individualMovie.go({ movieId: id.toString() }) }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      routes.individualMovie.go({ movieId: id.toString() });
+                    }}
                     withPlaceholder
                     placeholder={
                       <Text sx={{ height: "10rem" }} align="center">
