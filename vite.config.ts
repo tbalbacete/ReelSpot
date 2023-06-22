@@ -12,7 +12,8 @@ export default defineConfig({
     },
   },
   define: {
-    "process.env": {},
+    "process.env": process.env,
+    REACT_APP_API_KEY: process.env.REACT_APP_API_KEY,
   },
   server: {
     host: true,
