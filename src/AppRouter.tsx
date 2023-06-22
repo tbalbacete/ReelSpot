@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { useRouter } from "./hooks";
 import * as React from "react";
-import { DefaultLayout } from "./layout/DefaultLayout";
-import Search from "./pages/Search";
+import { DefaultLayout } from "@/layout";
+import { useRouter } from "@/hooks";
 
-const Home = React.lazy(() => import("./pages/Home"));
+const Home = React.lazy(() => import("@/pages/Home"));
+const Search = React.lazy(() => import("@/pages/Search"));
+const IndividualMovie = React.lazy(() => import("@/pages/IndividualMovie"));
 
 export const AppRouter: React.FC = () => {
   const { routes } = useRouter();
@@ -13,6 +14,7 @@ export const AppRouter: React.FC = () => {
       <Route path="/" element={<DefaultLayout />}>
         <Route index element={<Home />} />
         <Route path={routes.search.path} element={<Search />} />
+        <Route path={routes.individualMovie.path} element={<IndividualMovie />} />
       </Route>
     </Routes>
   )

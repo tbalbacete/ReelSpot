@@ -1,10 +1,10 @@
 import { UseQueryOptions, useQuery } from "@tanstack/react-query";
-import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "..";
+import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "@/data";
 import {
   DefaultApi,
   MoviePopularList200Response,
   MoviePopularListRequest,
-} from "../../api";
+} from "@/api";
 
 type Params = MoviePopularListRequest;
 

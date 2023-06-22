@@ -1,0 +1,1 @@
+export { IndividualMovie as default } from "./IndividualMovie";

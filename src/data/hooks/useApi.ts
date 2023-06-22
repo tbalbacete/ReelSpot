@@ -1,4 +1,4 @@
-import { BaseAPI, Configuration } from "../../api";
+import { BaseAPI, Configuration } from "@/api";
 
 type ApiConstructor<T extends BaseAPI> = new (config: Configuration) => T;
 

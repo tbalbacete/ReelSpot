@@ -38,7 +38,8 @@ export const useRouter = () => {
 
   const routes = {
     home: route("Home", "/"),
-    search: route("Search", "/search")
+    search: route("Search", "/search"),
+    individualMovie: route<({ movieId: string})>("Individual Movie", "/movie/:movieId")
 
   };
 

@@ -1,8 +1,8 @@
-import { Box, Button, Group, TextInput, Image, Card, Flex } from "@mantine/core";
+import { Box, Button, Group, TextInput, Image, Flex } from "@mantine/core";
 import React, { useState } from "react";
-import { useMovieSearch } from "../../data/hooks/useMovieSearchData";
 import { useForm } from "@mantine/form";
 import { Movie } from "../Home/Home";
+import { useMovieSearch } from "@/data";
 
 export const Search: React.FC = () => {
   const [searchString, setSearchString] = useState<string | undefined>(undefined);
