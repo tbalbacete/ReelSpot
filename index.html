@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/popcorn.svg" />
+  <link rel="icon" type="image/svg+xml" href="/popcorn.svg" id="light-scheme-icon" />
+  <link rel="icon" type="image/svg+xml" href="/popcornlight.svg" id="dark-scheme-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ReelSpot - Popular Movies</title>
 </head>
@@ -11,6 +12,20 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <script>
+    matcher = window.matchMedia('(prefers-color-scheme: dark)');
+    matcher.addListener(onUpdate);
+    onUpdate();
+    function onUpdate() {
+      if (matcher.matches) {
+        lightSchemeIcon.remove();
+        document.head.append(darkSchemeIcon);
+      } else {
+        document.head.append(lightSchemeIcon);
+        darkSchemeIcon.remove();
+      }
+    }
+  </script>
 </body>
 
 </html>
