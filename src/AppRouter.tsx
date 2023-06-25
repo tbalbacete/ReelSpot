@@ -10,8 +10,9 @@ const IndividualMovie = React.lazy(() => import("@/pages/IndividualMovie"));
 export const AppRouter: React.FC = () => {
   const { routes, currentRoute } = useRouter();
   React.useEffect(() => {
-    document.title = `ReelSpot - ${currentRoute?.label}` ?? "ReelSpot"
-  })
+    document.title = `${currentRoute?.label} - ReelSpot` ?? "ReelSpot"
+  });
+
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>

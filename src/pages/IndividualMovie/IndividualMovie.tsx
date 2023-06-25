@@ -6,6 +6,7 @@ import { useMovieCredits, useMovieDetails, useMovieReleases, useMovieVideos } fr
 import dayjs from "dayjs";
 import { getRatingColor } from "@/utils";
 import { useDisclosure } from "@mantine/hooks";
+import { useEffect } from "react";
 
 type MovieDetails = {
   backdropPath?: string;
@@ -45,9 +46,14 @@ export const IndividualMovie: React.FC = () => {
   const movieReleasesQuery = useMovieReleases({ movieId });
   const [opened, { open, close }] = useDisclosure(false);
 
+
   const { backdropPath, genres, posterPath, releaseDate, tagline, title, voteAverage, overview }: MovieDetails = movieQuery.data ?? {};
   const crew: CrewMember[] = movieCreditsQuery?.data?.crew;
   const trailer: Video = movieVideosQuery.data?.results.find((video: Video) => video.type === "Trailer");
+
+  useEffect(() => {
+    document.title = `${title} (${dayjs(releaseDate).format("YYYY")}) - ReelSpot`
+  })
 
   const director = crew.find((crewmember) =>
     crewmember.job === "Director");
