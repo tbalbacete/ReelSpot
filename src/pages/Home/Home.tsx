@@ -16,6 +16,7 @@ import {
   useUpcomingMovies,
 } from "@/data";
 import { useRouter } from "@/hooks";
+import { getRatingColor } from "@/utils";
 
 export type Movie = {
   id: number;
@@ -26,7 +27,7 @@ export type Movie = {
   overview: string;
 };
 
-type Genre = {
+export type Genre = {
   id: number;
   name: string;
 };
@@ -37,12 +38,6 @@ type TVShow = {
   backdropPath?: string;
   overview?: string;
   genres?: Genre[];
-};
-
-const getRatingColor = (average: number) => {
-  if (average > 7.5) return "green";
-  if (average > 5.0) return "yellow"; //
-  return "red";
 };
 
 export const Home: React.FC = () => {

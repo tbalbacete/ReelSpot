@@ -3,5 +3,9 @@ export const QUERY_KEY = {
   popularMovies: "popularMovies",
   movieSearch: "movieSearch",
   upcomingMovies: "upcomingMovies",
-  individualShow: "individualShow"
+  individualShow: "individualShow",
+  movieDetails: "movieDetails",
+  movieCredits: "movieCredits",
+  movieVideos: "movieVideos",
+  movieReleases: "movieReleases",
 };
