@@ -3,3 +3,7 @@ export * from "./usePopularMoviesData";
 export * from "./useUpcomingMoviesData";
 export * from "./useIndividualShowData";
 export * from "./useMovieSearchData";
+export * from "./useMovieDetailsData";
+export * from "./useMovieCreditsData";
+export * from "./useMovieVideosData";
+export * from "./useMovieReleaseData";
