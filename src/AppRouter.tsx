@@ -8,7 +8,10 @@ const Search = React.lazy(() => import("@/pages/Search"));
 const IndividualMovie = React.lazy(() => import("@/pages/IndividualMovie"));
 
 export const AppRouter: React.FC = () => {
-  const { routes } = useRouter();
+  const { routes, currentRoute } = useRouter();
+  React.useEffect(() => {
+    document.title = `ReelSpot - ${currentRoute?.label}` ?? "ReelSpot"
+  })
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
