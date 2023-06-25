@@ -12,12 +12,12 @@ export const DefaultLayout: React.FC = () => {
       <Box>
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "1rem", backgroundColor: "#00506E", color: "white" }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: "0.5em" }}>
-            <Title order={1}>ReelSpot</Title>
+            <Title sx={{ letterSpacing: "0.20rem" }} order={1}>ReelSpot</Title>
             <Popcorn size={32} />
           </Box>
           <Box sx={{ display: "flex", gap: "2rem" }}>
             <UnstyledButton onClick={() => routes.home.go()} sx={{ color: "white" }}><Title order={4}>Home</Title></UnstyledButton>
-            <UnstyledButton onClick={() => routes.search.go()} sx={{ color: "white" }}><Title order={4}>Search</Title></UnstyledButton>
+          <UnstyledButton onClick={() => routes.search.go()} sx={{ color: "white" }}><Title order={4}>Search</Title></UnstyledButton>
           </Box>
         </Box>
         <React.Suspense fallback={<PageSpinner />}>
