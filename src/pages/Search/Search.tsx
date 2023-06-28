@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { useForm } from "@mantine/form";
 import { Movie } from "../Home/Home";
 import { useMovieSearch } from "@/data";
+import { useRouter } from "@/hooks";
 
 export const Search: React.FC = () => {
+  const { routes } = useRouter();
   const [searchString, setSearchString] = useState<string | undefined>(undefined);
   const searchQuery = useMovieSearch({ query: searchString, includeAdult: false, language: "en-US", page: 1 }, { suspense: false, enabled: Boolean(searchString) });
 
@@ -30,7 +32,10 @@ export const Search: React.FC = () => {
 
       <Group position="center" spacing="md">
         {movies.map(({ poster_path, id }) => {
-          return <Image key={id} withPlaceholder maw={140} height={220} src={`https://image.tmdb.org/t/p/original/${poster_path}`} onClick={(e) => e.stopPropagation()} />
+          return <Image sx={{ "&:hover": { cursor: "pointer", opacity: 0.75 } }} onClick={(e) => {
+            e.stopPropagation();
+            routes.individualMovie.go({ movieId: id.toString() });
+          }} key={id} withPlaceholder maw={140} height={220} src={`https://image.tmdb.org/t/p/original/${poster_path}`} />
         })}
       </Group>
     </Box>
