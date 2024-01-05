@@ -60,13 +60,6 @@ export const Home: React.FC = () => {
       ?.results as TVShow[]
   ).find((show) => show.origin_country?.includes("US"));
 
-  // const popularShow = (
-  //   usePopularShowData({ language: "en-US", page: "1" }).data
-  //     ?.results as TVShow[]
-  // )[0].origin_country;
-
-  console.log([popularShow]);
-
   const tvShowQuery = useIndividualShowDetails(
     { seriesId: popularShow?.id },
     { enabled: Boolean(popularShow) }
