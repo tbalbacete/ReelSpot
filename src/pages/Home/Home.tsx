@@ -17,6 +17,7 @@ import {
 } from "@/data";
 import { useRouter } from "@/hooks";
 import { getRatingColor } from "@/utils";
+import { usePopularShowData } from "@/data/hooks/usePopularShowData";
 
 export type Movie = {
   id: number;
@@ -38,6 +39,7 @@ type TVShow = {
   backdropPath?: string;
   overview?: string;
   genres?: Genre[];
+  origin_country?: string[];
 };
 
 export const Home: React.FC = () => {
@@ -53,7 +55,22 @@ export const Home: React.FC = () => {
     region: "US",
   });
 
-  const tvShowQuery = useIndividualShowDetails({ seriesId: 125988 });
+  const popularShow = (
+    usePopularShowData({ language: "en-US", page: "1" }).data
+      ?.results as TVShow[]
+  ).find((show) => show.origin_country?.includes("US"));
+
+  // const popularShow = (
+  //   usePopularShowData({ language: "en-US", page: "1" }).data
+  //     ?.results as TVShow[]
+  // )[0].origin_country;
+
+  console.log([popularShow]);
+
+  const tvShowQuery = useIndividualShowDetails(
+    { seriesId: popularShow?.id },
+    { enabled: Boolean(popularShow) }
+  );
 
   const popularMovies: Movie[] = popularMoviesQuery.data?.results;
   const upcomingMovies: Movie[] = upcomingMoviesQuery.data?.results;
@@ -107,7 +124,7 @@ export const Home: React.FC = () => {
                         align="center"
                         size="xs"
                       >
-                        {vote_average * 10}%
+                        {Math.round(vote_average * 10)}%
                       </Text>
                     }
                   />
@@ -153,31 +170,33 @@ export const Home: React.FC = () => {
             })}
           </Carousel>
         </Box>
-        <Flex direction="column" gap="sm">
-          <Title sx={{}} order={5}>
-            NEW IN TV
-          </Title>
-          <Box sx={{ position: "relative" }}>
-            <Image
-              src={`https://image.tmdb.org/t/p/original/${tvShow.backdropPath}`}
-              height="40rem"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <Title sx={{ position: "absolute", bottom: 0, left: 15 }}>
-              {tvShow.name}
+        {tvShow && (
+          <Flex direction="column" gap="sm">
+            <Title sx={{}} order={5}>
+              NEW IN TV
             </Title>
-          </Box>
-          <Text fz="md">{tvShow.overview}</Text>
-          <Flex gap="md">
-            {tvShow.genres?.map(({ id, name }) => {
-              return (
-                <Badge key={id} color="gray" radius="xs" size="xl">
-                  {name}
-                </Badge>
-              );
-            })}
+            <Box sx={{ position: "relative" }}>
+              <Image
+                src={`https://image.tmdb.org/t/p/original/${tvShow.backdropPath}`}
+                height="40rem"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <Title sx={{ position: "absolute", bottom: 0, left: 15 }}>
+                {tvShow.name}
+              </Title>
+            </Box>
+            <Text fz="md">{tvShow.overview}</Text>
+            <Flex gap="md">
+              {tvShow.genres?.map(({ id, name }) => {
+                return (
+                  <Badge key={id} color="gray" radius="xs" size="xl">
+                    {name}
+                  </Badge>
+                );
+              })}
+            </Flex>
           </Flex>
-        </Flex>
+        )}
       </Stack>
     </Box>
   );
