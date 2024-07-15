@@ -1,5 +1,11 @@
-import { UseQueryOptions, useQuery } from "@tanstack/react-query";
-import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "@/data";
+import { useQuery } from "@tanstack/react-query";
+import {
+  CustomQueryOptions,
+  QUERY_KEY,
+  createCacheKey,
+  makeRequest,
+  useApi,
+} from "@/data";
 import { DefaultApi, SearchMovie200Response, SearchMovieRequest } from "@/api";
 
 type Params = SearchMovieRequest;
@@ -16,8 +22,12 @@ const useFetch = (params: Params) => {
 
 export const useMovieSearch = (
   params: Params,
-  options?: UseQueryOptions<ApiResponse, Error>
+  options?: CustomQueryOptions<ApiResponse, Error>
 ) => {
   const fetchData = useFetch(params);
-  return useQuery<ApiResponse, Error>(getCacheKey(params), fetchData, options);
+  return useQuery<ApiResponse, Error>({
+    queryKey: getCacheKey(params),
+    queryFn: fetchData,
+    ...options,
+  });
 };

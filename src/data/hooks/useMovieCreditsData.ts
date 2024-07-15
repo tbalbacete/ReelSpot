@@ -1,12 +1,14 @@
-import { DefaultApi, MovieCredits200Response, MovieCreditsRequest } from "@/api";
+import {
+  DefaultApi,
+  MovieCredits200Response,
+  MovieCreditsRequest,
+} from "@/api";
 import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "@/data";
-import { UseQueryOptions, useQuery } from "@tanstack/react-query";
+import { UseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
 
 type Params = MovieCreditsRequest;
 
 type ApiResponse = MovieCredits200Response;
-
-
 
 const getCacheKey = (params: Params) =>
   createCacheKey(QUERY_KEY.movieCredits, params);
@@ -21,5 +23,9 @@ export const useMovieCredits = (
   options?: UseQueryOptions<ApiResponse, Error>
 ) => {
   const fetchData = useFetch(params);
-  return useQuery<ApiResponse, Error>(getCacheKey(params), fetchData, options);
+  return useSuspenseQuery<ApiResponse, Error>({
+    queryKey: getCacheKey(params),
+    queryFn: fetchData,
+    ...options,
+  });
 };

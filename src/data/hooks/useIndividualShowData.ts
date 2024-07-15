@@ -1,6 +1,16 @@
-import { UseQueryOptions, useQuery } from "@tanstack/react-query";
-import { QUERY_KEY, createCacheKey, makeRequest, useApi } from "@/data";
-import { DefaultApi, TvSeriesDetails200Response, TvSeriesDetailsRequest } from "@/api";
+import { UseQueryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import {
+  CustomQueryOptions,
+  QUERY_KEY,
+  createCacheKey,
+  makeRequest,
+  useApi,
+} from "@/data";
+import {
+  DefaultApi,
+  TvSeriesDetails200Response,
+  TvSeriesDetailsRequest,
+} from "@/api";
 
 type Params = TvSeriesDetailsRequest;
 
@@ -16,8 +26,12 @@ const useFetch = (params: Params) => {
 
 export const useIndividualShowDetails = (
   params: Params,
-  options?: UseQueryOptions<ApiResponse, Error>
+  options?: CustomQueryOptions<ApiResponse, Error>
 ) => {
   const fetchData = useFetch(params);
-  return useQuery<ApiResponse, Error>(getCacheKey(params), fetchData, options);
+  return useSuspenseQuery<ApiResponse, Error>({
+    queryKey: getCacheKey(params),
+    queryFn: fetchData,
+    ...options,
+  });
 };

@@ -3,9 +3,9 @@ import {
   TvSeriesPopularList200Response,
   TvSeriesPopularListRequest,
 } from "@/api";
-import { UseQueryOptions, useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { useApi } from ".";
-import { createCacheKey, QUERY_KEY, makeRequest } from "..";
+import { createCacheKey, QUERY_KEY, makeRequest, CustomQueryOptions } from "..";
 
 type Params = TvSeriesPopularListRequest;
 
@@ -21,8 +21,12 @@ const useFetch = (params: Params) => {
 
 export const usePopularShowData = (
   params: Params,
-  options?: UseQueryOptions<ApiResponse, Error>
+  options?: CustomQueryOptions<ApiResponse, Error>
 ) => {
   const fetchData = useFetch(params);
-  return useQuery<ApiResponse, Error>(getCacheKey(params), fetchData, options);
+  return useSuspenseQuery<ApiResponse, Error>({
+    queryKey: getCacheKey(params),
+    queryFn: fetchData,
+    ...options,
+  });
 };
