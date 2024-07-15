@@ -1620,7 +1620,12 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
-follow-redirects@^1.14.8, follow-redirects@^1.14.9:
+follow-redirects@^1.14.8:
+  version "1.15.6"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
+  integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
+
+follow-redirects@^1.14.9:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -2057,9 +2062,9 @@ minimist@^1.2.6:
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
 moviedb-promise@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/moviedb-promise/-/moviedb-promise-3.4.0.tgz#2dc6ab93ba156ec6c122ddec7cb022d2f50550a0"
-  integrity sha512-sNCtSaQKl7qqXSsxr29/hYQ1JloR3shx+0u0fY7c8+cVoiisonCmxfjXjKuYGFpQ053PUpciqz/PSK2W9eF41w==
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/moviedb-promise/-/moviedb-promise-3.4.1.tgz#7d15b6296b21e6119d8881c5349b875d549bf792"
+  integrity sha512-TQe6ntr3Ws8w3wgEzk4Qb7/2nUNvbR7lfv9i58A19qfCad2G7esJoGpKV+xc0QCIDvPYslloM+e0KIpmJl3VCg==
   dependencies:
     axios "^0.26.1"
     lodash "^4.17.21"
