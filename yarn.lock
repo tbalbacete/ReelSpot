@@ -1056,12 +1056,14 @@ axios@1.6.8:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
-axios@^0.26.1:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.1.tgz#1ede41c51fcf51bbbd6fd43669caaa4f0495aaa9"
-  integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
+axios@^1.4.0:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.2.tgz#b625db8a7051fbea61c35a3cbb3a1daa7b9c7621"
+  integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
   dependencies:
-    follow-redirects "^1.14.8"
+    follow-redirects "^1.15.6"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
 
 babel-plugin-macros@^3.1.0:
   version "3.1.0"
@@ -1672,7 +1674,7 @@ flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.3.1.tgz#21db470729a6734d4997002f439cb308987f567a"
   integrity sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==
 
-follow-redirects@^1.14.8, follow-redirects@^1.15.6:
+follow-redirects@^1.15.6:
   version "1.15.6"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz#7f815c0cda4249c74ff09e95ef97c23b5fd0399b"
   integrity sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==
@@ -2104,13 +2106,14 @@ minimist@^1.2.6:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.8.tgz#c1a464e7693302e082a075cee0c057741ac4772c"
   integrity sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
 
-moviedb-promise@^3.4.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/moviedb-promise/-/moviedb-promise-3.4.1.tgz#7d15b6296b21e6119d8881c5349b875d549bf792"
-  integrity sha512-TQe6ntr3Ws8w3wgEzk4Qb7/2nUNvbR7lfv9i58A19qfCad2G7esJoGpKV+xc0QCIDvPYslloM+e0KIpmJl3VCg==
+moviedb-promise@^4.0.0:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/moviedb-promise/-/moviedb-promise-4.0.7.tgz#e8a15cb338790edf94c9cb51df17fa100831835f"
+  integrity sha512-BS5EemEcI9cmAG8vmpbmdhPoIHHDv/Ycjq4dikWmer9/4WvQm45r5UibDNuj8ZdsE9q0CObCPlZXbD7uOBHFOQ==
   dependencies:
-    axios "^0.26.1"
+    axios "^1.4.0"
     lodash "^4.17.21"
+    promise-throttle "^1.1.2"
 
 ms@2.1.2:
   version "2.1.2"
@@ -2279,6 +2282,11 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
+
+promise-throttle@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/promise-throttle/-/promise-throttle-1.1.2.tgz#8a59d0424b6f9673aa8405c8b6bd4b5e4f7f71db"
+  integrity sha512-dij7vjyXNewuuN/gyr+TX2KRjw48mbV5FEtgyXaIoJjGYAKT0au23/voNvy9eS4UNJjx2KUdEcO5Yyfc1h7vWQ==
 
 proxy-from-env@^1.1.0:
   version "1.1.0"
