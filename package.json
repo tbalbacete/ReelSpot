@@ -7,7 +7,7 @@
     "predev": "dotenv -e .env.local -e .env node ./envjs-generator.js ./public/env.js",
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint src --ext ts,tsx --max-warnings 0",
     "preview": "vite preview",
     "generate": "openapi-generator-cli generate -i openapi.json -o ./src/api --generator-name typescript-fetch --additional-properties=typescriptThreePlus=true,supportsES6=true --type-mappings Created=string,Modified=string,Day=string"
   },
